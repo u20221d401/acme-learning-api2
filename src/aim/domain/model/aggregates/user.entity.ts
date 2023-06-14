@@ -22,7 +22,7 @@ export class User extends AggregateRoot {
     super();
   }
 
-  onCreation(): void {
+  onCreation() {
     this.apply(new UserCreatedEvent(this.id));
   }
 }
