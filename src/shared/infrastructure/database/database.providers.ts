@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 export const databaseProviders = [
   {
@@ -9,12 +10,12 @@ export const databaseProviders = [
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: 'root',
-        database: 'test',
+        password: 'mysql',
+        database: 'alc',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
+        namingStrategy: new SnakeNamingStrategy(),
       });
-
       return dataSource.initialize();
     },
   },
